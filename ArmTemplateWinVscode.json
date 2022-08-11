@@ -53,18 +53,22 @@
                 ]
             }
           ],
-          "distribute": [
-            {
-              "type": "ManagedImage",
-              "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
-              "location": "<region>",
-              "runOutputName": "<runOutputName>",
-              "artifactTags": {
-                "source": "azVmImageBuilder",
-                "baseosimg": "windows11Multi"
-              }
-            }
-          ]
+            "distribute": 
+            [
+                {   
+                    "type": "SharedImage",
+                    "galleryImageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>",
+                    "runOutputName": "<runOutputName>",
+                    "artifactTags": {
+                        "source": "azureVmImageBuilder",
+                        "baseosimg": "win11multi"
+                    },
+                    "replicationRegions": [
+                      "<region1>",
+                      "<region2>"
+                    ]
+                }
+            ]
         }
       }
     ]
